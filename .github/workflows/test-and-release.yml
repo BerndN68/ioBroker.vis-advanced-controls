@@ -39,8 +39,8 @@ jobs:
               run: npm run build:ts -- --noEmit
               env:
                   CI: true
-            - name: Lint source code
-              run: npm run lint
+            #- name: Lint source code
+            #  run: npm run lint
             - name: Test package files
               run: npm run test:package
 
