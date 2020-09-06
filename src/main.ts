@@ -42,7 +42,7 @@ function startAdapter(options: Partial<utils.AdapterOptions> = {}): ioBroker.Ada
         ready: main, // Main method defined below for readability
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
-        unload: (callback) => {
+        unload: (callback: any) => {
             try {
                 // Here you must clear all timeouts or intervals that may still be active
                 // clearTimeout(timeout1);
@@ -69,7 +69,7 @@ function startAdapter(options: Partial<utils.AdapterOptions> = {}): ioBroker.Ada
         // },
 
         // is called if a subscribed state changes
-        stateChange: (id, state) => {
+        stateChange: (id: any, state: any) => {
             if (state) {
                 // The state was changed
                 adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);

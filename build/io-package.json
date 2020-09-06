@@ -1,0 +1,79 @@
+{
+    "common": {
+        "name": "vis-advanced-controls",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Advanced Controls",
+        "titleLang": {
+            "en": "Advanced Controls",
+            "de": "Erweiterte Steuerelemente",
+            "ru": "Расширенное управление",
+            "pt": "Controles avançados",
+            "nl": "Geavanceerde bedieningselementen",
+            "fr": "Contrôles avancés",
+            "it": "Controlli avanzati",
+            "es": "Controles avanzados",
+            "pl": "Zaawansowane sterowanie",
+            "zh-cn": "进阶控制"
+        },
+        "desc": {
+            "en": "Advanced controls for IO Broker VIS",
+            "de": "Erweiterte Steuerelemente für IO Broker VIS",
+            "ru": "Расширенные элементы управления для IO Broker VIS",
+            "pt": "Controles avançados para IO Broker VIS",
+            "nl": "Geavanceerde controles voor IO Broker VIS",
+            "fr": "Contrôles avancés pour IO Broker VIS",
+            "it": "Controlli avanzati per IO Broker VIS",
+            "es": "Controles avanzados para IO Broker VIS",
+            "pl": "Zaawansowane sterowanie dla IO Broker VIS",
+            "zh-cn": "IO Broker VIS的高级控件"
+        },
+        "authors": [
+            "BerndN68 <bernd.naegele@sih-solutions.de>"
+        ],
+        "keywords": [
+            "template"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "build/main.js",
+        "icon": "vis-advanced-controls.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/BerndN68/ioBroker.vis-advanced-controls/master/admin/vis-advanced-controls.png",
+        "readme": "https://github.com/BerndN68/ioBroker.vis-advanced-controls/blob/master/README.md",
+        "loglevel": "info",
+        "restartAdapters": [
+            "vis"
+        ],
+        "localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
+        "mode": "daemon",
+        "type": "visualization",
+        "compact": true,
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            },
+            "vis"
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
