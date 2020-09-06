@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './../../node_modules/axios/index';
 
 /**
  * Tests whether the given variable is a real object and not an Array
