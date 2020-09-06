@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.translateText = exports.isArray = exports.isObject = void 0;
-const axios_1 = require('./node_modules/axios/index');
+const index_1 = require("./../../node_modules/axios/index");
 /**
  * Tests whether the given variable is a real object and not an Array
  * @param it The variable to test
@@ -70,7 +70,7 @@ function translateYandex(text, targetLang, apiKey) {
         }
         try {
             const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${apiKey}&text=${encodeURIComponent(text)}&lang=en-${targetLang}`;
-            const response = yield axios_1.default({ url, timeout: 15000 });
+            const response = yield index_1.default({ url, timeout: 15000 });
             if (isArray((_a = response.data) === null || _a === void 0 ? void 0 : _a.text)) {
                 return response.data.text[0];
             }
@@ -91,7 +91,7 @@ function translateGoogle(text, targetLang) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}&ie=UTF-8&oe=UTF-8`;
-            const response = yield axios_1.default({ url, timeout: 15000 });
+            const response = yield index_1.default({ url, timeout: 15000 });
             if (isArray(response.data)) {
                 // we got a valid response
                 return response.data[0][0][0];

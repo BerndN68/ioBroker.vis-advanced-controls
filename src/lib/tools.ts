@@ -1,4 +1,4 @@
-import axios from './../../node_modules/axios/index';
+// import axios from 'axios';
 
 /**
  * Tests whether the given variable is a real object and not an Array
@@ -27,6 +27,7 @@ export function isArray(it: unknown): it is any[] {
  * @param targetLang The target languate
  * @param yandexApiKey The yandex API key. You can create one for free at https://translate.yandex.com/developers
  */
+/*
 export async function translateText(text: string, targetLang: string, yandexApiKey?: string): Promise<string> {
     if (targetLang === 'en') {
         return text;
@@ -39,13 +40,14 @@ export async function translateText(text: string, targetLang: string, yandexApiK
         return translateGoogle(text, targetLang);
     }
 }
-
+*/
 /**
  * Translates text with Yandex API
  * @param text The text to translate
  * @param targetLang The target languate
  * @param apiKey The yandex API key. You can create one for free at https://translate.yandex.com/developers
  */
+/*
 async function translateYandex(text: string, targetLang: string, apiKey: string): Promise<string> {
     if (targetLang === 'zh-cn') {
         targetLang = 'zh';
@@ -61,12 +63,13 @@ async function translateYandex(text: string, targetLang: string, apiKey: string)
         throw new Error(`Could not translate to "${targetLang}": ${e}`);
     }
 }
-
+*/
 /**
  * Translates text with Google API
  * @param text The text to translate
  * @param targetLang The target languate
  */
+/*
 async function translateGoogle(text: string, targetLang: string): Promise<string> {
     try {
         const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}&ie=UTF-8&oe=UTF-8`;
@@ -86,3 +89,4 @@ async function translateGoogle(text: string, targetLang: string): Promise<string
         }
     }
 }
+*/
