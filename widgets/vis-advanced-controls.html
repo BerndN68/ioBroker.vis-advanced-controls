@@ -133,3 +133,107 @@
         vis.binds['vis-advanced-controls'].createWidget(this.data.wid, this.view, this.data, this.style);
     %></div>
 </script>
+
+
+<script id="tplVacShutterDialog"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-set="vis-advanced-controls"
+        data-vis-type="ctrl,shutter,dialog"
+        data-vis-name="Shutter / Blinds + Dialog"
+        data-vis-prev='<div id="prev_tplVacShutterDialog" style="position: relative; text-align: initial;padding: 4px "><div data-oid="dev1" class="vis-widget_prev vis-widget ui-widget ui-button ui-corner-all ui-state-default  ui-state-active" style="width: 70px; height: 70px;"><div class="vis-widget-prev-body"> <img style="filter: invert(1); -webkit-filter: invert(1); -moz-filter: invert(1); -o-filter: invert(1); -ms-filter: invert(1);" width="100%" src="widgets/vis-advanced-controls/img/fts_shutter_30.png"> </div></div></div>'
+        data-vis-attrs="oid;oid-working;min;max;invert_icon/checkbox;asButton[true]/checkbox;invert_value/checkbox;show_active/checkbox;iconColor/color;"
+        data-vis-attrs0="group.colors;iconColor0/color;iconColor1/color;iconColor2/color;iconColor3/color;iconColor4/color;iconColor5/color;iconColor6/color;iconColor7/color;iconColor8/color;iconColor9/color;iconColor10/color;"
+        data-vis-attrs1="group.dialog;title;noHeader/checkbox;autoclose/slider,0,30000,100;modal/checkbox;dialog_width[450];dialog_height[210];dialog_top;dialog_left;overflowX/nselect,,visible,hidden,scroll,auto,initial,inherit;overflowY/nselect,,visible,hidden,scroll,auto,initial,inherit;show_value/checkbox;units;"
+>
+    <div data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" class="vis-widget <%= this.data.attr('asButton') ? ' ui-widget ui-button ui-corner-all ui-state-default' : '' %> <%= this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width:76px; height:76px; position:absolute" <%= (el) -> this.data.attr('show_active') ? vis.binds.jqueryui.classes(el, true) : '' %>>
+        <div id="<%= this.data.attr('wid') %>_body" class="vis-widget-body" style="width:100%; height:100%" <%= (el) -> vis.preloadImages(['widgets/vis-advanced-controls/img/light_light_dim_100.png','widgets/vis-advanced-controls/img/light_light_dim_90.png','widgets/vis-advanced-controls/img/light_light_dim_80.png','widgets/vis-advanced-controls/img/light_light_dim_70.png','widgets/vis-advanced-controls/img/light_light_dim_60.png','widgets/vis-advanced-controls/img/light_light_dim_50.png','widgets/vis-advanced-controls/img/light_light_dim_40.png','widgets/vis-advanced-controls/img/light_light_dim_30.png','widgets/vis-advanced-controls/img/light_light_dim_20.png','widgets/vis-advanced-controls/img/light_light_dim_10.png','widgets/vis-advanced-controls/img/light_light_dim.png']); %>>
+            <%
+                var styles = '';
+                if (this.data.invert_icon === 'true' || this.data.invert_icon === true) {
+                    styles = 'filter: invert(1); -webkit-filter: invert(1); -moz-filter: invert(1); -o-filter: invert(1); -ms-filter: invert(1);';
+                }
+                var max = (this.data.attr('max') !== undefined) ? this.data.attr('max') : 100;
+                var min = (this.data.attr('min') !== undefined) ? this.data.attr('min') : 0;
+
+                if (typeof max === 'string' && parseFloat(max).toString() == max) max = parseFloat(max);
+                if (typeof min === 'string' && parseFloat(min).toString() == min) min = parseFloat(min);
+
+                var val = max - parseFloat(vis.states.attr(this.data.oid + '.val')) + min;
+
+                if (this.data.attr('invert_value')) val = max - val + min;
+
+                var image = '';
+                var imageColor = null;
+            if (val >= max) {
+                image = "fts_shutter_100";
+                imageColor = this.data.attr('iconColor10');
+            } else if (val >= min + (max - min) * 0.9) {
+                image = "fts_shutter_90";
+                imageColor = this.data.attr('iconColor9');
+            } else if (val >= min + (max - min) * 0.8) {
+                image = "fts_shutter_80";
+                imageColor = this.data.attr('iconColor8');
+            } else if (val >= min + (max - min) * 0.7) {
+                image = "fts_shutter_70";
+                imageColor = this.data.attr('iconColor7');
+            } else if (val >= min + (max - min) * 0.6) {
+                image = "fts_shutter_60";
+                imageColor = this.data.attr('iconColor6');
+            } else if (val >= min + (max - min) * 0.5) {
+                image = "fts_shutter_50";
+                imageColor = this.data.attr('iconColor5');
+            } else if (val >= min + (max - min) * 0.4) {
+                image = "fts_shutter_40";
+                imageColor = this.data.attr('iconColor4');
+            } else if (val >= min + (max - min) * 0.3) {
+                image = "fts_shutter_30";
+                imageColor = this.data.attr('iconColor3');
+            } else if (val >= min + (max - min) * 0.2) {
+                image = "fts_shutter_20";
+                imageColor = this.data.attr('iconColor2');
+            } else if (val >= min + (max - min) * 0.1) {
+                image = "fts_shutter_10";
+                imageColor = this.data.attr('iconColor1');
+            } else {
+                image = "fts_shutter_10";       // "fts_window_2w";
+                imageColor = this.data.attr('iconColor0');
+            }
+
+            if (!vis.binds['vis-advanced-controls'].isNotEmpty(imageColor)) {
+                imageColor = this.data.attr('iconColor');
+            }
+
+            if (vis.binds['vis-advanced-controls'].isNotEmpty(imageColor)) {
+            %>
+                <img style="<%= styles %>" width="100%" src="widgets/vis-advanced-controls/img/<%= image %>.svg" <%= (el) -> vis.binds.jqueryui.setSvgColor(el, imageColor) %>/>
+            <% } else { %>
+                <img style="<%= styles %>" width="100%" src="widgets/vis-advanced-controls/img/<%= image %>.png" <%= (el) -> vis.binds['vis-advanced-controls'].removeSvg(this.data.attr('wid')) %>/>
+            <% } %>
+        </div>
+        <div id="<%= this.data.attr('wid') %>_dialog" class="<%= this.data.attr('wid') %>_dialog vis-widget-dialog" title="<%== this.data.title || this.data.attr('oid') %>" style="padding-left: 20px;">
+            <div id="<%= this.data.attr('wid') %>_radio"  class="<%= this.data.attr('wid') %>_radio" style="text-align: center" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
+                <%
+                    var max = (this.data.attr('max') !== undefined) ? this.data.attr('max') : 100;
+                    var min = (this.data.attr('min') !== undefined) ? this.data.attr('min') : 0;
+
+                    if (typeof max === 'string' && parseFloat(max).toString() == max) max = parseFloat(max);
+                    if (typeof min === 'string' && parseFloat(min).toString() == min) min = parseFloat(min);
+
+                %>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio2">50%</label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>"/><label for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
+            </div>
+            <br/>
+            <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
+            <br/>
+            <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
+            <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
+        </div>
+        <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialog(el, data, true) %> />
+        <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
+    </div>
+</script>
