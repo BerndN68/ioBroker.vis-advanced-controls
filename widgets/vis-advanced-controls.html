@@ -270,7 +270,7 @@
             <div class="mdw-list-icon">
                 <img src="<%= this.data.attr('card-icon') %>">
             </div>
-            <div class="mdw-list-desc">
+            <div class="dialog-click-button mdw-list-desc">
                 <div class="mdw-list-title mduiw-title"  style="color: <%= this.data.attr('Text-color') %>;">
                     <%= this.data.attr('title') %>
                 </div>
@@ -312,7 +312,7 @@
                     <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
                     <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
                 </div>
-                <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialog(el, data, true) %> />
+                <div class="popup-helper" <%= (el) -> vis.binds.advancedui.dialog(el, data, true) %> />
                 <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
                 <!-- ENDE DIALOG -->
 

@@ -120,6 +120,130 @@ $.extend(
     }
 );
 
+
+vis.binds.advancedui = {
+    dialog: function (el, options, persistent, preload, html, closeOnClick) {
+        var $dlg = $(el).parent().find('div.vis-widget-dialog');
+        $dlg.data('preload', (!preload || preload === 'false') && !$dlg.html().replace(/\s/g, ''));
+        $('[aria-describedby="' + $dlg.attr('id') + '"]').remove();
+
+        options.width     = options.width  || options.dialog_width;
+        options.height    = options.height || options.dialog_height;
+        options.top       = options.top    || options.dialog_top;
+        options.left      = options.left   || options.dialog_left;
+        options.minHeight = options.height;
+        options.minWidth  = options.width;
+
+        // Show dialog in edit mode too
+        if (1 || !vis.editMode) {
+            $(el).parent().find('div.dialog-click-button').on('click touchend', function (event) {
+                event.stopPropagation();
+                // Protect against two events
+                if (vis.detectBounce(this)) return;
+
+                if ($dlg.data('preload')) $dlg.html(html);
+
+                if (persistent) {
+                    if (options.setId) vis.setValue(options.setId, options.setValue);
+                    $dlg.dialog('open');
+                    $dlg.parent().css('z-index', 998);
+                    $dlg.parent().find('.ui-widget-header button .ui-button-text').html('');
+                    if (options.minHeight)   $dlg.css('min-height', options.minHeight);
+                    if (options.minWidth)    $dlg.css('min-width', options.minWidth);
+                    if (options.top  || options.top  === 0 || options.top  === '0') $dlg.parent().css('top',  options.top);
+                    if (options.left || options.left === 0 || options.left === '0') $dlg.parent().css('left', options.left);
+                    if (options.overflowX) $dlg.css('overflow-x', options.overflowX);
+                    if (options.overflowY) $dlg.css('overflow-y', options.overflowY);
+                    if (options.noHeader) {
+                        $dlg.parent().find('.ui-dialog-titlebar').css({background: 'rgba(0,0,0,0)', border: 0, color: 'rgba(0,0,0,0)'});
+                        $dlg.parent().find('.ui-dialog-title').html('&nbsp;');
+                    }
+                    $dlg.parent().find('.ui-state-focus').blur();
+                } else {
+                    $dlg.dialog($.extend({
+                        autoOpen: true,
+                        open: function () {
+                            $(this).parent().find('.ui-widget-header button .ui-button-text').html('');
+                            if (options.setId) vis.setValue(options.setId, options.setValue);
+                            $(this).parent().css('z-index', 998);
+                            if (options.minHeight)   $(this).css('min-height', options.minHeight);
+                            if (options.minWidth)    $(this).css('min-width', options.minWidth);
+                            if (options.top  || options.top  === 0 || options.top  === '0') $(this).parent().css('top',  options.top);
+                            if (options.left || options.left === 0 || options.left === '0') $(this).parent().css('left', options.left);
+                            if (options.overflowX) $(this).css('overflow-x', options.overflowX);
+                            if (options.overflowY) $(this).css('overflow-y', options.overflowY);
+                            if (options.noHeader) {
+                                $dlg.parent().find('.ui-dialog-titlebar').css({background: 'rgba(0,0,0,0)', border: 0, color: 'rgba(0,0,0,0)'});
+                                $dlg.parent().find('.ui-dialog-title').html('&nbsp;');
+                            }
+                            $(this).parent().find('.ui-state-focus').blur();
+                            //touchscreen fix
+                            var $closeButton = $(this).parent().find('button.ui-dialog-titlebar-close');
+                            $closeButton.off('touchend').on('touchend', function (event) {
+                                event.stopPropagation();
+                                $dlg.dialog('close');
+                                return false;
+                            });
+                        },
+                        close: function () {
+                            if ($dlg.data('timer')) { clearTimeout($dlg.data('timer')); $dlg.data('timer', null)};
+                            $dlg.dialog('destroy');
+                            // Destroy content if not preloaded
+                            if ($dlg.data('preload')) $dlg.html('');
+                        }
+                    }, options));
+
+                    $dlg.data('inited', true);
+
+                    if (closeOnClick) {
+                        $dlg.off('click touchstart touchend').on('click touchend', function (event) {
+                            event.stopPropagation();
+                            $dlg.dialog('close');
+                            return false;
+                        });
+                    }
+                }
+                return false;
+            });
+        }
+        if (persistent) {
+            $dlg.dialog($.extend({
+                autoOpen: false,
+                open: function () {
+                    $dlg.parent().css({'z-index': 1000});
+                    if ($dlg.data('preload')) $dlg.html(html);
+                    //touchscreen fix
+                    var $closeButton = $(this).parent().find('button.ui-dialog-titlebar-close');
+                    $closeButton.off('touchend').on('touchend', function (event) {
+                        event.stopPropagation();
+                        $dlg.dialog('close');
+                        return false;
+                    });
+                },
+                close: function () {
+                    if ($dlg.data('timer')) {
+                        clearTimeout($dlg.data('timer'));
+                        $dlg.data('timer', null);
+                    }
+                    // Destroy content if not preloaded
+                    if ($dlg.data('preload')) $dlg.html('');
+                }
+            }, options));
+
+            $dlg.data('inited', true);
+
+            if (closeOnClick) {
+                $dlg.off('click touchstart touchend').on('click touchend', function (event) {
+                    event.stopPropagation();
+                    $dlg.dialog('close');
+                    return false;
+                });
+            }
+        }
+    }
+
+};
+
 // this code can be placed directly in vis-advanced-controls.html
 vis.binds['vis-advanced-controls'] = {
     version: '0.0.11',
@@ -220,6 +344,8 @@ vis.binds['vis-advanced-controls'] = {
             update(vis.states[data.oid + '.val']);
         }
     }
+
+
 };
 
 vis.binds['vis-advanced-controls'].showVersion();
