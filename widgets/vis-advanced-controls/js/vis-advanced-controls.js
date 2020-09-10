@@ -122,7 +122,7 @@ $.extend(
 
 // this code can be placed directly in vis-advanced-controls.html
 vis.binds['vis-advanced-controls'] = {
-    version: '0.0.1',
+    version: '0.0.2',
     showVersion: function () {
         if (vis.binds['vis-advanced-controls'].version) {
             console.log('Version vis-advanced-controls: ' + vis.binds['vis-advanced-controls'].version);
@@ -167,8 +167,8 @@ vis.binds['vis-advanced-controls'] = {
         }
     },
     tplVacShutterDialog2: function (widgetID, view, data) {
-        /*   const srcOff = 'widgets/vis-material-advanced/img/light_light_dim_00.png';
-          const srcOn = 'widgets/vis-material-advanced/img/light_light_dim_100.png'; */
+        /*   const srcOff = 'widgets/vis-advanced-controls/img/light_light_dim_00.png';
+          const srcOn = 'widgets/vis-advanced-controls/img/light_light_dim_100.png'; */
         var $div = $('#' + widgetID);
 
         // if nothing found => wait
