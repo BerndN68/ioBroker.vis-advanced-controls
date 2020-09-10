@@ -278,6 +278,8 @@
                     <%= this.data.attr('subtitle') %>
                 </div>
 
+            </div>
+
                 <!-- ANFANG DIALOG -->
                 <div id="<%= this.data.attr('wid') %>_dialog" class="<%= this.data.attr('wid') %>_dialog vis-widget-dialog" title="<%== this.data.title || this.data.attr('oid') %>" style="padding-left: 20px;">
                     <div id="<%= this.data.attr('wid') %>_radio"  class="<%= this.data.attr('wid') %>_radio" style="text-align: center" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
@@ -305,7 +307,6 @@
                 <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
                 <!-- ENDE DIALOG -->
 
-            </div>
             <div class="mdw-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
 
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="1" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
