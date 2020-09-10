@@ -271,6 +271,28 @@
                 <img src="<%= this.data.attr('card-icon') %>">
 
 
+
+            </div>
+            <div class="mdw-list-desc">
+                <div class="mdw-list-title mduiw-title"  style="color: <%= this.data.attr('Text-color') %>;">
+                    <%= this.data.attr('title') %>
+                </div>
+                <div class="mdw-list-subtitle mduiw-subtitle" style="color: <%= this.data.attr('Text-color') %>;">
+                    <%= this.data.attr('subtitle') %>
+                </div>
+            </div>
+
+            <div class=" mduiw-raisedbutton ">
+                <input type="button" name="<%=this.data.attr( 'wid') %>_button " id="<%= this.data.attr('wid') %>_button" data-oid="<%= this.data.attr('oid') %>" />
+                <label for="<%= this.data.attr('wid') %>_checkboxDOWN"><label>
+
+            <div class=" mduiw-raisedbutton ">
+                <input type="button" name="<%=this.data.attr( 'wid') %>_button " id="<%= this.data.attr('wid') %>_button" data-oid="<%= this.data.attr('oid') %>" />
+                <label for="<%= this.data.attr('wid') %>_checkboxUP"><label>
+
+            <div class="vis-widget-body ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
+        </div>
+
                 <!-- dialog -->
                 <div id="<%= this.data.attr('wid') %>_dialog" class="<%= this.data.attr('wid') %>_dialog vis-widget-dialog" title="<%== this.data.title || this.data.attr('oid') %>" style="padding-left: 20px;">
                     <div id="<%= this.data.attr('wid') %>_radio"  class="<%= this.data.attr('wid') %>_radio" style="text-align: center" data-oid="<%= this.data.attr('oid') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
@@ -296,27 +318,6 @@
                 </div>
                 <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialog(el, data, true) %> />
                 <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
-
-            </div>
-            <div class="mdw-list-desc">
-                <div class="mdw-list-title mduiw-title"  style="color: <%= this.data.attr('Text-color') %>;">
-                    <%= this.data.attr('title') %>
-                </div>
-                <div class="mdw-list-subtitle mduiw-subtitle" style="color: <%= this.data.attr('Text-color') %>;">
-                    <%= this.data.attr('subtitle') %>
-                </div>
-            </div>
-
-            <div class=" mduiw-raisedbutton ">
-                <input type="button" name="<%=this.data.attr( 'wid') %>_button " id="<%= this.data.attr('wid') %>_button" data-oid="<%= this.data.attr('oid') %>" />
-                <label for="<%= this.data.attr('wid') %>_checkboxDOWN"><label>
-
-            <div class=" mduiw-raisedbutton ">
-                <input type="button" name="<%=this.data.attr( 'wid') %>_button " id="<%= this.data.attr('wid') %>_button" data-oid="<%= this.data.attr('oid') %>" />
-                <label for="<%= this.data.attr('wid') %>_checkboxUP"><label>
-
-            <div class="vis-widget-body ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
-        </div>
 
     </div>
     <% vis.binds['vis-advanced-controls'].tplVacShutterDialog2(this.data.wid, this.view, this.data);  %>
