@@ -278,7 +278,17 @@
                     <%= this.data.attr('subtitle') %>
                 </div>
 
+                <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialog(el, data, true) %> />
             </div>
+
+            <div class="mdw-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
+
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="1" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="0" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= _('open') %></label>
+
+            </div>
+            <div class="vis-widget-body ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
+        </div>
 
                 <!-- ANFANG DIALOG -->
                 <div id="<%= this.data.attr('wid') %>_dialog" class="<%= this.data.attr('wid') %>_dialog vis-widget-dialog" title="<%== this.data.title || this.data.attr('oid') %>" style="padding-left: 20px;">
@@ -303,18 +313,9 @@
                     <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
                     <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
                 </div>
-                <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialog(el, data, true) %> />
                 <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
                 <!-- ENDE DIALOG -->
 
-            <div class="mdw-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
-
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="1" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="0" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= _('open') %></label>
-
-            </div>
-            <div class="vis-widget-body ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
-        </div>
 
     </div>
     <% vis.binds['vis-advanced-controls'].tplVacShutterDialog2(this.data.wid, this.view, this.data);  %>
