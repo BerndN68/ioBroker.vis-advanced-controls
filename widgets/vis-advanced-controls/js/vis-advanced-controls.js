@@ -128,7 +128,9 @@ vis.binds.advancedui = {
         $('[aria-describedby="' + $dlg.attr('id') + '"]').remove();
 
         console.log('vis-advanced-controls: vis.binds.advancedui.dialog');
-        console.log('vis-advanced-controls: ' + $(el).parent().find('div.dialog-click-button').attr('id'))
+        console.log('vis-advanced-controls: ' + $(el).parent().find('div.dialog-click-button').attr('class'))
+        console.log('vis-advanced-controls: $(el).parent().id=' + $(el).parent().id)
+        console.log('vis-advanced-controls: $(el).parent().className=' + $(el).parent().className)
 
         options.width     = options.width  || options.dialog_width;
         options.height    = options.height || options.dialog_height;
