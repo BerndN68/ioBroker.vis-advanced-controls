@@ -254,7 +254,7 @@ vis.binds.advancedui = {
 
 // this code can be placed directly in vis-advanced-controls.html
 vis.binds['vis-advanced-controls'] = {
-    version: '0.0.23',
+    version: '0.0.24',
     showVersion: function () {
         if (vis.binds['vis-advanced-controls'].version) {
             console.log('Version vis-advanced-controls: ' + vis.binds['vis-advanced-controls'].version);
@@ -302,6 +302,10 @@ vis.binds['vis-advanced-controls'] = {
         /*   const srcOff = 'widgets/vis-advanced-controls/img/light_light_dim_00.png';
           const srcOn = 'widgets/vis-advanced-controls/img/light_light_dim_100.png'; */
         var $div = $('#' + widgetID);
+
+        // Default-Bild anzeigen
+        const src = 'widgets/vis-advanced-controls/img/fts_shutter_NaN0.png';
+        $div.find('.mdw-list-icon').find('img').attr('src', src);
 
         // if nothing found => wait
         if (!$div.length) {
