@@ -128,6 +128,8 @@ vis.binds.advancedui = {
         $('[aria-describedby="' + $dlg.attr('id') + '"]').remove();
 
         console.log('vis-advanced-controls: vis.binds.advancedui.dialog');
+        console.log('vis-advanced-controls: ' + $(el).parent().find('vis-widget-body').class)
+        console.log('vis-advanced-controls: ' + $(el).parent().find('vis-widget-body').className)
         console.log('vis-advanced-controls: ' + $(el).parent().find('mdw-list-desc').class)
         console.log('vis-advanced-controls: ' + $(el).parent().find('mdw-list-desc').className)
         console.log('vis-advanced-controls: $(el).parent().id=' + $(el).parent().id)
@@ -142,7 +144,7 @@ vis.binds.advancedui = {
 
         // Show dialog in edit mode too
         if (1 || !vis.editMode) {
-            $(el).parent().find('mdw-list-desc').on('click touchend', function (event) {
+            $(el).parent().find('vis-widget-body').on('click touchend', function (event) {
 
                 console.log('Version vis-advanced-controls: click touchend');
 
@@ -255,7 +257,7 @@ vis.binds.advancedui = {
 
 // this code can be placed directly in vis-advanced-controls.html
 vis.binds['vis-advanced-controls'] = {
-    version: '0.0.19',
+    version: '0.0.20',
     showVersion: function () {
         if (vis.binds['vis-advanced-controls'].version) {
             console.log('Version vis-advanced-controls: ' + vis.binds['vis-advanced-controls'].version);
