@@ -271,15 +271,12 @@
                 <img src="<%= this.data.attr('card-icon') %>">
             </div>
             <div class="mdw-list-desc">
-                <div class="dialog-click-button">
                     <div class="mdw-list-title mduiw-title"  style="color: <%= this.data.attr('Text-color') %>;">
                         <%= this.data.attr('title') %>
                     </div>
                     <div class="mdw-list-subtitle mduiw-subtitle" style="color: <%= this.data.attr('Text-color') %>;">
                         <%= this.data.attr('subtitle') %>
                     </div>
-                </div>
-
             </div>
 
             <div class="mdw-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
@@ -288,6 +285,9 @@
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="0" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= _('open') %></label>
 
             </div>
+
+            <div class="popup-helper" <%= (el) -> vis.binds.advancedui.dialog(el, data, true) %> />
+
             <div class="vis-widget-body ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
         </div>
 
@@ -314,7 +314,6 @@
                     <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
                     <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
                 </div>
-                <div class="popup-helper" <%= (el) -> vis.binds.advancedui.dialog(el, data, true) %> />
                 <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
                 <!-- ENDE DIALOG -->
 
