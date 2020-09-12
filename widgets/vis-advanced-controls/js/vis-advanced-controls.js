@@ -128,12 +128,8 @@ vis.binds.advancedui = {
         $('[aria-describedby="' + $dlg.attr('id') + '"]').remove();
 
         console.log('vis-advanced-controls: vis.binds.advancedui.dialog');
-        console.log('vis-advanced-controls: ' + $(el).parent().find('vis-widget-body').class)
-        console.log('vis-advanced-controls: ' + $(el).parent().find('vis-widget-body').className)
-        console.log('vis-advanced-controls: ' + $(el).parent().find('mdw-list-desc').class)
-        console.log('vis-advanced-controls: ' + $(el).parent().find('mdw-list-desc').className)
-        console.log('vis-advanced-controls: $(el).parent().id=' + $(el).parent().id)
-        console.log('vis-advanced-controls: $(el).parent().className=' + $(el).parent().className)
+        console.log('vis-advanced-controls: div.vis-widget-body => ' + $(el).parent().find('div.vis-widget-body').className)
+        console.log('vis-advanced-controls: div.mdw-list-desc => ' + $(el).parent().find('div.mdw-list-desc').className)
 
         options.width     = options.width  || options.dialog_width;
         options.height    = options.height || options.dialog_height;
@@ -144,7 +140,7 @@ vis.binds.advancedui = {
 
         // Show dialog in edit mode too
         if (1 || !vis.editMode) {
-            $(el).parent().find('vis-widget-body').on('click touchend', function (event) {
+            $(el).parent().find('div.vis-widget-body').on('click touchend', function (event) {
 
                 console.log('Version vis-advanced-controls: click touchend');
 
