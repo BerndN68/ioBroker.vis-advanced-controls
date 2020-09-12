@@ -282,9 +282,11 @@
             </div>
 
             <div class="mdw-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
+                <button type="button" id="<%= this.data.attr('wid') %>_buttonDown">DOWN</button>
+                <button type="button" id="<%= this.data.attr('wid') %>_buttonUp">UP</button>
 
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="1" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="0" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= _('open') %></label>
+      <!--          <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="1" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="0" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= _('open') %></label> -->
 
             </div>
 

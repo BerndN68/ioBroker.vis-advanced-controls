@@ -254,7 +254,7 @@ vis.binds.advancedui = {
 
 // this code can be placed directly in vis-advanced-controls.html
 vis.binds['vis-advanced-controls'] = {
-    version: '0.0.25',
+    version: '0.0.26',
     showVersion: function () {
         if (vis.binds['vis-advanced-controls'].version) {
             console.log('Version vis-advanced-controls: ' + vis.binds['vis-advanced-controls'].version);
@@ -312,6 +312,20 @@ vis.binds['vis-advanced-controls'] = {
             return setTimeout(function () {
                 vis.binds['vis-advanced-controls'].tplVacShutterDialog2(widgetID, view, data);
             }, 100);
+        }
+
+        var $buttonDown = $div.find('.mdw-list-value').find('button')[0];
+        var $buttonUp = $div.find('.mdw-list-value').find('button')[1];
+
+        $buttonDown.addEventListener('click', buttonDown);
+        $buttonUp.addEventListener('click', buttonUp);
+
+        function buttonDown(){
+            console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked')
+        }
+
+        function buttonUp(){
+            console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked')
         }
 
         function update(state) {
