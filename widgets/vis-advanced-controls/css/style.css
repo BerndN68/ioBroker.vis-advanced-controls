@@ -1,4 +1,9 @@
 /* Style your widget here */
+
+.mdui-runtime .ui-dialog {
+    background: #1d2e44;
+}
+
 .vis-advanced-controls-class {
     font-style: italic;
 }
