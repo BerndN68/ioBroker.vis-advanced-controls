@@ -8,36 +8,28 @@
     font-style: italic;
 }
 
-.vac-dialog-shutter-0-icon {
+.vac-dialog-0-icon {
     float: left;
     width: 72px;
     height: 56px;
 }
 
-.vac-dialog-shutter-0-icon img {
+.vac-dialog-0-icon img {
     margin-left: 8px;
     width: 48px;
     height: 48px;
 }
 
 
-.vac-dialog-shutter-radio {
+.vac-dialog-radio {
     float: left;
     width: calc(100% - 72px - 100px - 16px);
     height: 56px;
     margin-top: 10px;
 }
 
-
-.ac-dialog-shutter-100-icon {
-    float: left;
-    width: 100px !important;
-    text-align: right;
-    margin-top: 16px;
+.vis-widget-dialog {
+    --content-background: #e03232;
 }
 
-.vac-dialog-shutter-100-icon img {
-    margin-left: 8px;
-    width: 48px;
-    height: 48px;
-}
+
