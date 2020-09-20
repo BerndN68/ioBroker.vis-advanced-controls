@@ -55,8 +55,16 @@
     background: #cc1a1a;
 }
 
-.mdw-list-value img {
+.vac-list-value img {
     margin-left: 8px;
-    width: 48px;
-    height: 48px;
+    width: 18px;
+    height: 28px;
+}
+
+
+.vac-list-value {
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-top: 10px;
 }
