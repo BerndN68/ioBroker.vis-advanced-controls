@@ -18,7 +18,6 @@
     margin-left: 8px;
     width: 48px;
     height: 48px;
-    background: black;
 }
 
 .vac-dialog-100-icon {
@@ -32,7 +31,6 @@
     margin-left: 8px;
     width: 48px;
     height: 48px;
-    background: black;
 }
 
 
@@ -57,22 +55,8 @@
     background: #cc1a1a;
 }
 
-.vac-list-value img {
+.mdw-list-value img {
     margin-left: 8px;
-    width: 18px;
-    height: 28px;
+    width: 48px;
+    height: 48px;
 }
-
-
-.vac-list-value {
-    float: left;
-    width: 100px;
-    text-align: right;
-    margin-top: 10px;
-}
-
-.vac-list-value button {
-    background: black;
-}
-
-
