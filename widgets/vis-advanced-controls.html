@@ -323,6 +323,12 @@
             <br/>
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
+            <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
+            <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
 
             <!-- blade -->
             <div class="vac-dialog-0-icon">
@@ -352,7 +358,6 @@
             <br/>
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
-
             <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
             <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
         </div>
