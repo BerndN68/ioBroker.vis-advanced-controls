@@ -360,15 +360,26 @@ vis.binds['vis-advanced-controls'] = {
             });
         } */
 
-        if (data.oid) {
+        if (data.oidShutter) {
             // subscribe on updates of value
-            vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
+            vis.states.bind(data.oidShutter + '.val', function (e, newVal, oldVal) {
                 update(newVal);
             });
 
             // set current value
-            update(vis.states[data.oid + '.val']);
+            update(vis.states[data.oidShutter + '.val']);
         }
+
+        if (data.oidBlade) {
+            // subscribe on updates of value
+            vis.states.bind(data.oidBlade + '.val', function (e, newVal, oldVal) {
+                update(newVal);
+            });
+
+            // set current value
+            update(vis.states[data.oidBlade + '.val']);
+        }
+
     }
 
 

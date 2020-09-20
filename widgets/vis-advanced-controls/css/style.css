@@ -42,10 +42,6 @@
     margin-top: 10px;
 }
 
-.vis-widget-dialog {
-    background: grey;
-}
-
 .mdui-runtime .ui-dialog {
     height: 600px;
     width: 590px;
@@ -61,7 +57,6 @@
     width: 18px;
     height: 28px;
 }
-
 
 .vac-list-value {
     float: left;
