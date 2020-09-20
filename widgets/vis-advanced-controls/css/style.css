@@ -57,21 +57,21 @@
     background: #cc1a1a;
 }
 
-.vac-list-value img {
+.vis-list-value img {
     margin-left: 8px;
     width: 18px;
     height: 28px;
 }
 
 
-.vac-list-value {
+.vis-list-value {
     float: left;
-    width: 100px;
+    width: 100px
     text-align: right;
     margin-top: 10px;
 }
 
-.vac-list-value button {
+.vis-list-value button {
     background: black;
 }
 
