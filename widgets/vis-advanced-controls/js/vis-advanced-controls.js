@@ -329,6 +329,7 @@ vis.binds['vis-advanced-controls'] = {
         }
 
         function update(state) {
+            /*
             var percent = Math.ceil(state / 10);
             var name;
 
@@ -349,16 +350,16 @@ vis.binds['vis-advanced-controls'] = {
 
                 $div.find('.mdw-list-value').html(state + "%");
 
-            }
+            }*/
         }
-
-        /* if (!vis.editMode) {
-            var $this = $('#' + widgetID + '_slider');
+/*
+        if (!vis.editMode) {
+            var $this = $('#' + widgetID + '_blade_slider');
             $this.change(function () {
                 var $this_ = $(this);
-                vis.setValue($this_.data('oid'), $this_.prop('checked'));
+                vis.setValue($this_.data('oidBlade'), $this_.prop('checked'));
             });
-        } */
+        }*/
 
         if (data.oidShutter) {
             // subscribe on updates of value
