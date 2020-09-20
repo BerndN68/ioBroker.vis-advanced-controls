@@ -43,7 +43,7 @@
 }
 
 .vis-widget-dialog {
-    --content-background: #e03232;
+    background: grey;
 }
 
 .mdui-runtime .ui-dialog {
