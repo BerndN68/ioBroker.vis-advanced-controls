@@ -281,7 +281,7 @@
                 <div class="mdw-list-desc ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
             </div>
 
-            <div class="mdw-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
+            <div class="vis-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
                 <button type="button" id="<%= this.data.attr('wid') %>_buttonDown"><img src="widgets/vis-advanced-controls/img/steuer_ab.png" /></button>
                 <button type="button" id="<%= this.data.attr('wid') %>_buttonUp"><img src="widgets/vis-advanced-controls/img/steuer_auf.png" /></button>
             </div>
@@ -311,14 +311,14 @@
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio2">50%</label>
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
             </div>
 
             <div class="vac-dialog-100-icon">
                 <img src="widgets/vis-advanced-controls/img/fts_shutter_100.png">
             </div>
 
-            <br/>
+            <br/><br/>
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
 
@@ -336,16 +336,16 @@
                     if (typeof min === 'string' && parseFloat(min).toString() == min) min = parseFloat(min);
                 %>
 
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio2">50%</label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio2">50%</label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
             </div>
             <div class="vac-dialog-100-icon">
                 <img src="widgets/vis-advanced-controls/img/fts_blade_z_100.png">
             </div>
-            <br/>
+            <br/><br/>
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
 
