@@ -20,6 +20,19 @@
     height: 48px;
 }
 
+.vac-dialog-100-icon {
+    float: left;
+    width: 100px !important;
+    text-align: right;
+    margin-top: 16px;
+}
+
+.vac-dialog-100-icon img {
+    margin-left: 8px;
+    width: 48px;
+    height: 48px;
+}
+
 
 .vac-dialog-radio {
     float: left;
@@ -32,4 +45,18 @@
     --content-background: #e03232;
 }
 
+.mdui-runtime .ui-dialog {
+    height: 600px;
+    width: 590px;
+    top: 58px;
+    left: 200px;
+    /* background: var(--content-background) !important; */
+    position: absolute;
+    background: #cc1a1a;
+}
 
+.mdw-list-value img {
+    margin-left: 8px;
+    width: 48px;
+    height: 48px;
+}

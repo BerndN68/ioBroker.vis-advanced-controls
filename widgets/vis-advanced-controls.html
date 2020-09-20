@@ -334,14 +334,13 @@
 
                     if (typeof max === 'string' && parseFloat(max).toString() == max) max = parseFloat(max);
                     if (typeof min === 'string' && parseFloat(min).toString() == min) min = parseFloat(min);
-
                 %>
 
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio2">50%</label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>"/><label for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio2">50%</label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio4"><%= _('open') %></label>
             </div>
             <div class="vac-dialog-100-icon">
                 <img src="widgets/vis-advanced-controls/img/fts_blade_z_100.png">
@@ -349,9 +348,6 @@
             <br/>
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
-
-
-
 
             <%= vis.states.attr(this.data.oid + '.val') ? (((parseFloat(vis.states.attr(this.data.oid + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
             <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oid + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
