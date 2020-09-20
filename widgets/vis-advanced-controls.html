@@ -318,7 +318,8 @@
                 <img src="widgets/vis-advanced-controls/img/fts_shutter_100.png">
             </div>
 
-            <br/><br/>
+            <br/>
+            <br/>
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= this.data.attr('oid') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
 
