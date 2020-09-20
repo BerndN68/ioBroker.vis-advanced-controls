@@ -369,7 +369,7 @@ vis.binds['vis-advanced-controls'] = {
             // set current value
             update(vis.states[data.oidShutter + '.val']);
         }
-
+/*
         if (data.oidBlade) {
             // subscribe on updates of value
             vis.states.bind(data.oidBlade + '.val', function (e, newVal, oldVal) {
@@ -378,7 +378,7 @@ vis.binds['vis-advanced-controls'] = {
 
             // set current value
             update(vis.states[data.oidBlade + '.val']);
-        }
+        } */
 
     }
 
