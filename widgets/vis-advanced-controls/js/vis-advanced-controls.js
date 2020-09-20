@@ -314,8 +314,8 @@ vis.binds['vis-advanced-controls'] = {
             }, 100);
         }
 
-        var $buttonDown = $div.find('.mdw-list-value').find('button')[0];
-        var $buttonUp = $div.find('.mdw-list-value').find('button')[1];
+        var $buttonDown = $div.find('.vac-list-value').find('button')[0];
+        var $buttonUp = $div.find('.vac-list-value').find('button')[1];
 
         $buttonDown.addEventListener('click', buttonDown);
         $buttonUp.addEventListener('click', buttonUp);
