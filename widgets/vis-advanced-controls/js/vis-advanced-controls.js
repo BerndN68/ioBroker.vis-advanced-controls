@@ -361,14 +361,14 @@ vis.binds['vis-advanced-controls'] = {
             });
         }*/
 
-        if (data.oidShutter) {
+        if (data.oidShutterPos) {
             // subscribe on updates of value
-            vis.states.bind(data.oidShutter + '.val', function (e, newVal, oldVal) {
+            vis.states.bind(data.oidShutterPos + '.val', function (e, newVal, oldVal) {
                 update(newVal);
             });
 
             // set current value
-            update(vis.states[data.oidShutter + '.val']);
+            update(vis.states[data.oidShutterPos + '.val']);
         }
 
         if (data.oidBlade) {
