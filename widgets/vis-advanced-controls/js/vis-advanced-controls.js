@@ -322,12 +322,12 @@ vis.binds['vis-advanced-controls'] = {
 
         function buttonDown(){
             console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked');
-            vis.setValue($this_.data('oidShutterDir'), 'true');
+            vis.setValue(data.oidShutterDir, 'true');
         }
 
         function buttonUp(){
             console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked')
-            vis.setValue($this_.data('oidShutterDir'), 'false');
+            vis.setValue(data.oidShutterDir, 'false');
         }
 
         function update(state) {
