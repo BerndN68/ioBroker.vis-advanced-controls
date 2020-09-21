@@ -359,7 +359,6 @@
             <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_blade_slider" data-oid="<%= this.data.attr('oidBlade') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
             <%= vis.states.attr(this.data.oidBlade + '.val') ? (((parseFloat(vis.states.attr(this.data.oidBlade + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
-            <%= vis.states.attr(this.data.oidBlade + '.val') %>
             <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oidBlade + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
         </div>
         <div class="popup-helper" <%= (el) -> vis.binds.advancedui.dialog(el, data, true) %> />
