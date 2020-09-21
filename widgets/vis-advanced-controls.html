@@ -260,7 +260,7 @@
         <img src="widgets/vis-advanced-controls/img/fts_shutter_100.png" style="width: 100px; height: 100px;"></div></div>'
         data-vis-attrs="oidShutter/id;oidBlade/id;title/text;subtitle/text;widget-background[#121212]/color;Text-color[white]/color;"
         data-vis-attrs0="opacity-color[white]/color;inverted[checked]/checkbox;"
-        data-vis-attrs1="group.dialog;title;dialog_width[660];dialog_height[370];readOnly/checkbox;"
+        data-vis-attrs1="group.dialog;title;dialog_width[660];dialog_height[400];readOnly/checkbox;"
         data-vis-attrs5="card-icon[widgets/vis-advanced-controls/img/fts_shutter_100.png]/image;"
         data-vis-set="vis-advanced-controls"
         data-vis-type="val"
@@ -307,7 +307,7 @@
 
                 %>
 
-                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio0"><%= _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio0"><%= !this.data.attr('invert_value') ? _('open') : _('closed') %></label>
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio2">50%</label>
                 <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
