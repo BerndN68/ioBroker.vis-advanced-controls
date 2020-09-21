@@ -258,7 +258,7 @@
         data-vis-prev='<div id="prev_tplVis-advanced-controlsListWindowShutter2" style="position: relative; text-align: initial;padding: 4px ">
         <div class="vis-widget_prev " style="width: 100px; height: 100px; padding:2px; background-color: #121212" >
         <img src="widgets/vis-advanced-controls/img/fts_shutter_100.png" style="width: 100px; height: 100px;"></div></div>'
-        data-vis-attrs="oidShutterPos/id;oidBlade/id;title/text;subtitle/text;widget-background[#121212]/color;Text-color[white]/color;"
+        data-vis-attrs="oidShutterDir/id;oidShutterPos/id;oidBladePos/id;title/text;subtitle/text;widget-background[#121212]/color;Text-color[white]/color;"
         data-vis-attrs0="opacity-color[white]/color;inverted[checked]/checkbox;"
         data-vis-attrs1="group.dialog;title;dialog_width[660];dialog_height[400];readOnly/checkbox;"
         data-vis-attrs5="card-icon[widgets/vis-advanced-controls/img/fts_shutter_100.png]/image;"
@@ -335,7 +335,7 @@
                 <img src="widgets/vis-advanced-controls/img/fts_blade_z_00.png">
             </div>
 
-            <div id="<%= this.data.attr('wid') %>_blade_radio"  class="<%= this.data.attr('wid') %>_radio vac-dialog-radio" style="text-align: center" data-oid="<%= this.data.attr('oidBlade') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
+            <div id="<%= this.data.attr('wid') %>_blade_radio"  class="<%= this.data.attr('wid') %>_radio vac-dialog-radio" style="text-align: center" data-oid="<%= this.data.attr('oidBladePos') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
                 <%
                     var max = (this.data.attr('max') !== undefined) ? this.data.attr('max') : 100;
                     var min = (this.data.attr('min') !== undefined) ? this.data.attr('min') : 0;
@@ -356,10 +356,10 @@
             <br/>
             <br/>
             <br/>
-            <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_blade_slider" data-oid="<%= this.data.attr('oidBlade') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
+            <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_blade_slider" data-oid="<%= this.data.attr('oidBladePos') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
             <br/>
-            <%= vis.states.attr(this.data.oidBlade + '.val') ? (((parseFloat(vis.states.attr(this.data.oidBlade + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
-            <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oidBlade + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
+            <%= vis.states.attr(this.data.oidBladePos + '.val') ? (((parseFloat(vis.states.attr(this.data.oidBladePos + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
+            <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oidBladePos + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
         </div>
         <div class="popup-helper" <%= (el) -> vis.binds.advancedui.dialog(el, data, true) %> />
         <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />

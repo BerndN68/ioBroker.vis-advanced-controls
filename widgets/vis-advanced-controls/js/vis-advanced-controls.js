@@ -321,11 +321,13 @@ vis.binds['vis-advanced-controls'] = {
         $buttonUp.addEventListener('click', buttonUp);
 
         function buttonDown(){
-            console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked')
+            console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked');
+            vis.setValue($this_.data('oidShutterDir'), 'true');
         }
 
         function buttonUp(){
             console.log('vis-advanced-controls - tplVacShutterDialog2 - button down clicked')
+            vis.setValue($this_.data('oidShutterDir'), 'false');
         }
 
         function update(state) {
@@ -357,7 +359,7 @@ vis.binds['vis-advanced-controls'] = {
             var $this = $('#' + widgetID + '_blade_slider');
             $this.change(function () {
                 var $this_ = $(this);
-                vis.setValue($this_.data('oidBlade'), $this_.prop('checked'));
+                vis.setValue($this_.data('oidBladePos'), $this_.prop('checked'));
             });
         }*/
 
@@ -371,14 +373,14 @@ vis.binds['vis-advanced-controls'] = {
             update(vis.states[data.oidShutterPos + '.val']);
         }
 
-        if (data.oidBlade) {
+        if (data.oidBladePos) {
             // subscribe on updates of value
-            vis.states.bind(data.oidBlade + '.val', function (e, newVal, oldVal) {
+            vis.states.bind(data.oidBladePos + '.val', function (e, newVal, oldVal) {
                 update(newVal);
             });
 
             // set current value
-            update(vis.states[data.oidBlade + '.val']);
+            update(vis.states[data.oidBladePos + '.val']);
         }
 
     }
