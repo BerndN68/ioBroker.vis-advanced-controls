@@ -401,9 +401,17 @@
             </div>
 
             <div class="vac-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
-                <button type="button" id="<%= this.data.attr('wid') %>_buttonDown"><i class="material-icons" >keyboard_arrow_down</i></button>
-                <button type="button" id="<%= this.data.attr('wid') %>_buttonDown"><i class="material-icons" >pause</i></button>
-                <button type="button" id="<%= this.data.attr('wid') %>_buttonUp"><i class="material-icons" >keyboard_arrow_up</i></button>
+                <div class="mdui-button-outlined vis-tpl-jqui-Button State" style="width: 36px;height: 36px;">
+                    <button type="button" id="<%= this.data.attr('wid') %>_buttonDown"><i class="material-icons" >keyboard_arrow_down</i></button>
+                </div>
+
+                <div class="mdui-button-outlined vis-tpl-jqui-Button State" style="width: 36px;height: 36px;">
+                    <button type="button" id="<%= this.data.attr('wid') %>_buttonDown"><i class="material-icons" >pause</i></button>
+                </div>
+
+                <div class="mdui-button-outlined vis-tpl-jqui-Button State" style="width: 36px;height: 36px;">
+                    <button type="button" id="<%= this.data.attr('wid') %>_buttonUp"><i class="material-icons" >keyboard_arrow_up</i></button>
+                </div>
             </div>
 
         </div>
