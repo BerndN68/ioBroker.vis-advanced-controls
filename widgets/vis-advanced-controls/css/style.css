@@ -37,7 +37,7 @@
 
 .vac-dialog-radio {
     float: left;
-    width: calc(100% - 72px - 100px - 16px);
+    width: calc(100% - 72px - 150px - 16px);
     height: 56px;
     margin-top: 10px;
 }

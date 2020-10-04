@@ -402,10 +402,12 @@ vis.binds['vis-advanced-controls'] = {
         }
 
         var $buttonDown = $div.find('.vac-list-value').find('button')[0];
-        var $buttonUp = $div.find('.vac-list-value').find('button')[1];
+        var $buttonStop = $div.find('.vac-list-value').find('button')[1];
+        var $buttonUp = $div.find('.vac-list-value').find('button')[2];
 
         $buttonDown.addEventListener('click', buttonDown);
         $buttonUp.addEventListener('click', buttonUp);
+        $buttonStop.addEventListener('click', buttonStop);
 
         function buttonDown(){
             console.log('vis-advanced-controls - tplVacShutterDialog3 - button down clicked');
@@ -415,6 +417,11 @@ vis.binds['vis-advanced-controls'] = {
         function buttonUp(){
             console.log('vis-advanced-controls - tplVacShutterDialog3 - button down clicked')
             vis.setValue(data.oidShutterDir, 'false');
+        }
+
+        function buttonStop(){
+            console.log('vis-advanced-controls - tplVacShutterDialog3 - button stop clicked')
+            vis.setValue(data.oidShutterStop, 'true');
         }
 
         function update(state) {
