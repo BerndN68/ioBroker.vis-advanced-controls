@@ -138,6 +138,9 @@ vis.binds.advancedui = {
         options.minHeight = options.height;
         options.minWidth  = options.width;
 
+        console.log('vis-advanced-controls: showDialog ' + data.attr('showDialog'));
+
+
         // Show dialog in edit mode too
         if (1 || !vis.editMode) {
 //            $(el).parent().find('div.vis-widget-body').on('click touchend', function (event) {
