@@ -425,7 +425,7 @@ vis.binds['vis-advanced-controls'] = {
         }
 
         function update(state) {
-            /*
+
             var percent = Math.ceil(state / 10);
             var name;
 
@@ -446,7 +446,7 @@ vis.binds['vis-advanced-controls'] = {
 
                 $div.find('.mdw-list-value').html(state + "%");
 
-            }*/
+            }
         }
         /*
                 if (!vis.editMode) {
