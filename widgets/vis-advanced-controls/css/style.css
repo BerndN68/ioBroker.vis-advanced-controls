@@ -56,6 +56,7 @@
     margin-left: 8px;
     width: 18px;
     height: 28px;
+    filter: invert(1);
 }
 
 .vac-list-value {
@@ -63,4 +64,8 @@
     width: 100px;
     text-align: right;
     margin-top: 10px;
+}
+
+.vac-list-value button {
+    background: white;
 }
