@@ -61,14 +61,14 @@
 
 div.vac-list-desc {
     float: left;
-    width: calc(100% - 72px - 150px - 16px);
+    width: calc(100% - 72px - 140px - 16px);
     height: 56px;
     margin-top: 10px;
 }
 
 div.vac-list-value {
     float: left;
-    width: 150px;
+    width: 140px;
     text-align: right;
     margin-top: 10px;
 }
