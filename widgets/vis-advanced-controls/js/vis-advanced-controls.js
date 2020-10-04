@@ -383,7 +383,7 @@ vis.binds['vis-advanced-controls'] = {
             update(vis.states[data.oidBladePos + '.val']);
         }
 
-    }
+    },
 
     tplVacShutterDialog3: function (widgetID, view, data) {
         /*   const srcOff = 'widgets/vis-advanced-controls/img/light_light_dim_00.png';
