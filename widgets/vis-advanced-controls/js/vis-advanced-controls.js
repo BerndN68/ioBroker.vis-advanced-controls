@@ -366,7 +366,7 @@ vis.binds['vis-advanced-controls'] = {
             });
         }*/
 
-        if (data.oidShutterPos) {
+        if (data.oidShutterStatus) {
             // subscribe on updates of value
             vis.states.bind(data.oidShutterPos + '.val', function (e, newVal, oldVal) {
                 update(newVal);
@@ -460,14 +460,14 @@ vis.binds['vis-advanced-controls'] = {
                     });
                 }*/
 
-        if (data.oidShutterPos) {
+        if (data.oidShutterStatus) {
             // subscribe on updates of value
-            vis.states.bind(data.oidShutterPos + '.val', function (e, newVal, oldVal) {
+            vis.states.bind(data.oidShutterStatus + '.val', function (e, newVal, oldVal) {
                 update(newVal);
             });
 
             // set current value
-            update(vis.states[data.oidShutterPos + '.val']);
+            update(vis.states[data.oidShutterStatus + '.val']);
         }
 
         if (data.oidBladePos) {
@@ -477,7 +477,7 @@ vis.binds['vis-advanced-controls'] = {
             });
 
             // set current value
-            update(vis.states[data.oidBladePos + '.val']);
+          //  update(vis.states[data.oidBladePos + '.val']);
         }
 
     }
