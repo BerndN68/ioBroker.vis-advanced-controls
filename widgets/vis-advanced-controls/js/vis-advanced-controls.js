@@ -141,7 +141,7 @@ vis.binds.advancedui = {
         // Show dialog in edit mode too
         if (1 || !vis.editMode) {
 //            $(el).parent().find('div.vis-widget-body').on('click touchend', function (event) {
-                $(el).parent().find('div.mdw-list-desc').on('click touchend', function (event) {
+                $(el).parent().find('div.vac-list-desc').on('click touchend', function (event) {
 
                 console.log('Version vis-advanced-controls: click touchend');
 
