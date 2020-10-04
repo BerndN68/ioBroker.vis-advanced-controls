@@ -138,7 +138,7 @@ vis.binds.advancedui = {
         options.minHeight = options.height;
         options.minWidth  = options.width;
 
-        console.log('vis-advanced-controls: showDialog ' + data.attr('showDialog'));
+        //console.log('vis-advanced-controls: showDialog ' + data.attr('showDialog'));
 
 
         // Show dialog in edit mode too
