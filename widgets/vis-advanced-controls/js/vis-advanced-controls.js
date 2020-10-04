@@ -480,6 +480,100 @@ vis.binds['vis-advanced-controls'] = {
           //  update(vis.states[data.oidBladePos + '.val']);
         }
 
+    },
+
+    tplVacShutterBlindsDialog: function (widgetID, view, data) {
+        /*   const srcOff = 'widgets/vis-advanced-controls/img/light_light_dim_00.png';
+          const srcOn = 'widgets/vis-advanced-controls/img/light_light_dim_100.png'; */
+        var $div = $('#' + widgetID);
+
+        // Default-Bild anzeigen
+        const src = 'widgets/vis-advanced-controls/img/fts_shutter_NaN0.png';
+        $div.find('.mdw-list-icon').find('img').attr('src', src);
+
+        // if nothing found => wait
+        if (!$div.length) {
+            return setTimeout(function () {
+                vis.binds['vis-advanced-controls'].tplVacShutterBlindsDialog(widgetID, view, data);
+            }, 100);
+        }
+
+        var $buttonDown = $div.find('.vac-list-value').find('button')[0];
+        var $buttonStop = $div.find('.vac-list-value').find('button')[1];
+        var $buttonUp = $div.find('.vac-list-value').find('button')[2];
+
+        $buttonDown.addEventListener('click', buttonDown);
+        $buttonUp.addEventListener('click', buttonUp);
+        $buttonStop.addEventListener('click', buttonStop);
+
+        function buttonDown(){
+            console.log('vis-advanced-controls - tplVacShutterBlindsDialog - button down clicked');
+            vis.setValue(data.oidShutterDir, 'true');
+        }
+
+        function buttonUp(){
+            console.log('vis-advanced-controls - tplVacShutterBlindsDialog - button down clicked')
+            vis.setValue(data.oidShutterDir, 'false');
+        }
+
+        function buttonStop(){
+            console.log('vis-advanced-controls - tplVacShutterBlindsDialog - button stop clicked')
+            vis.setValue(data.oidShutterStop, 'true');
+        }
+
+        function update(state) {
+
+            var percent = Math.ceil(state / 10);
+            var name;
+
+            console.log("Status: " + state);
+
+            if (data.attr('inverted') == true) {
+
+                name = 10 - parseInt(percent);
+                console.log('Inverted -> name: ' + name);
+            } else {
+                name = percent;
+            }
+
+            var src = 'widgets/vis-advanced-controls/img/fts_shutter_' + name + '0.png';
+            console.log(' name : ' + name + " Icon : " + src);
+            $div.find('.mdw-list-icon').find('img').attr('src', src);
+            if (data.attr('readOnly')) {
+
+                $div.find('.mdw-list-value').html(state + "%");
+
+            }
+        }
+        /*
+                if (!vis.editMode) {
+                    var $this = $('#' + widgetID + '_blade_slider');
+                    $this.change(function () {
+                        var $this_ = $(this);
+                        vis.setValue($this_.data('oidBladePos'), $this_.prop('checked'));
+                    });
+                }*/
+
+        if (data.oidShutterStatus) {
+            // subscribe on updates of value
+            vis.states.bind(data.oidShutterStatus + '.val', function (e, newVal, oldVal) {
+                update(newVal);
+            });
+
+            // set current value
+            update(vis.states[data.oidShutterStatus + '.val']);
+        }
+
+        if (data.oidBladePos) {
+            // subscribe on updates of value
+            vis.states.bind(data.oidBladePos + '.val', function (e, newVal, oldVal) {
+                update(newVal);
+            });
+
+            // set current value
+            //  update(vis.states[data.oidBladePos + '.val']);
+        }
+
     }
 
 

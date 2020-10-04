@@ -497,3 +497,132 @@
     <% vis.binds['vis-advanced-controls'].tplVacShutterDialog3(this.data.wid, this.view, this.data);  %>
 </script>
 
+
+
+<script
+        id="tplVacShutterBlindsDialog"
+        type="text/ejs"
+        class="vis-tpl"
+        data-vis-prev='<div id="prev_tplVis-advanced-controlsListWindowShutter3" style="position: relative; text-align: initial;padding: 4px ">
+        <div class="vis-widget_prev " style="width: 100px; height: 100px; padding:2px; background-color: #121212" >
+        <img src="widgets/vis-advanced-controls/img/fts_shutter_100.png" style="width: 100px; height: 100px;"></div></div>'
+        data-vis-attrs="oidShutterDir/id;oidShutterStop/id;oidShutterPos/id;oidShutterStatus/id;oidBladePos/id;title/text;subtitle/text;widget-background[#121212]/color;Text-color[white]/color;"
+        data-vis-attrs0="opacity-color[white]/color;inverted[checked]/checkbox;"
+        data-vis-attrs1="group.dialog;title;dialog_width[660];dialog_height[400];readOnly/checkbox;showDialog[true]/checkbox;"
+        data-vis-attrs5="card-icon[widgets/vis-advanced-controls/img/fts_shutter_100.png]/image;"
+        data-vis-set="vis-advanced-controls"
+        data-vis-type="val"
+        data-vis-name="ShutterBlinds" >
+    <div class="vis-widget <%== this.data.attr('class') %> mdw-list" id="<%= this.data.attr('wid') %>" style="background-color:<%= this.data.attr('widget-background') %>;">
+        <div class="vis-widget-body my_child  " >
+            <div class="mdw-list-icon">
+                <img src="<%= this.data.attr('card-icon') %>">
+            </div>
+            <div class="vac-list-desc">
+                    <div class="mdw-list-title mduiw-title"  style="color: <%= this.data.attr('Text-color') %>;">
+                        <%= this.data.attr('title') %>
+                    </div>
+                    <div class="mdw-list-subtitle mduiw-subtitle" style="color: <%= this.data.attr('Text-color') %>;">
+                        <%= this.data.attr('subtitle') %>
+                    </div>
+
+                <div class="vac-list-desc ms-button-op my_child opac-template8" style="background-color: <%= this.data.attr('opacity-color') %>" ></div>
+            </div>
+
+            <div class="vac-list-value"  style="color: <%= this.data.attr('Text-color') %>;">
+                <div class="mdui-button-outlined vis-tpl-jqui-Button State" style="width: 36px;height: 36px;float: left;">
+                    <button type="button" style="width:100%; height:100%;" id="<%= this.data.attr('wid') %>_buttonDown"><i class="material-icons" >keyboard_arrow_down</i></button>
+                </div>
+
+                <div class="mdui-button-outlined vis-tpl-jqui-Button State" style="width: 36px;height: 36px;float: left;margin-left:16px;">
+                    <button type="button" style="width:100%; height:100%;" id="<%= this.data.attr('wid') %>_buttonStop"><i class="material-icons" >pause</i></button>
+                </div>
+
+                <div class="mdui-button-outlined vis-tpl-jqui-Button State" style="width: 36px;height: 36px;float: left;margin-left:16px;">
+                    <button type="button" style="width:100%; height:100%;" id="<%= this.data.attr('wid') %>_buttonUp"><i class="material-icons" >keyboard_arrow_up</i></button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ANFANG DIALOG -->
+        <div id="<%= this.data.attr('wid') %>_dialog" class="<%= this.data.attr('wid') %>_dialog vis-widget-dialog" title="<%== this.data.title || this.data.attr('oidShutterPos') %>" style="padding-left: 20px;">
+
+            <!-- shutter -->
+
+            <div class="vac-dialog-0-icon">
+                <img src="widgets/vis-advanced-controls/img/fts_shutter_00.png">
+            </div>
+
+            <div id="<%= this.data.attr('wid') %>_shutter_radio"  class="<%= this.data.attr('wid') %>_radio vac-dialog-radio" style="text-align: center" data-oid="<%= this.data.attr('oidShutterPos') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
+                <%
+                    var max = (this.data.attr('max') !== undefined) ? this.data.attr('max') : 100;
+                    var min = (this.data.attr('min') !== undefined) ? this.data.attr('min') : 0;
+
+                    if (typeof max === 'string' && parseFloat(max).toString() == max) max = parseFloat(max);
+                    if (typeof min === 'string' && parseFloat(min).toString() == min) min = parseFloat(min);
+
+                %>
+
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio0"><%= !this.data.attr('invert_value') ? _('open') : _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio2">50%</label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked" class="ui-helper-hidden-accessible" /><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>" checked="checked" class="ui-helper-hidden-accessible"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_radio4"><%= !this.data.attr('invert_value') ? _('closed') : _('open') %></label>
+            </div>
+
+            <div class="vac-dialog-100-icon">
+                <img src="widgets/vis-advanced-controls/img/fts_shutter_100.png">
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+            <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_shutter_slider" data-oid="<%= this.data.attr('oidShutterPos') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
+            <br/>
+            <%= vis.states.attr(this.data.oidShutterPos + '.val') ? (((parseFloat(vis.states.attr(this.data.oidShutterPos + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
+            <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oidShutterPos + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <!-- blade -->
+            <div class="vac-dialog-0-icon">
+                <img src="widgets/vis-advanced-controls/img/fts_blade_z_00.png">
+            </div>
+
+            <div id="<%= this.data.attr('wid') %>_blade_radio"  class="<%= this.data.attr('wid') %>_radio vac-dialog-radio" style="text-align: center" data-oid="<%= this.data.attr('oidBladePos') %>" <%= (el) -> vis.binds.jqueryui.radio(el); %> >
+                <%
+                    var max = (this.data.attr('max') !== undefined) ? this.data.attr('max') : 100;
+                    var min = (this.data.attr('min') !== undefined) ? this.data.attr('min') : 0;
+
+                    if (typeof max === 'string' && parseFloat(max).toString() == max) max = parseFloat(max);
+                    if (typeof min === 'string' && parseFloat(min).toString() == min) min = parseFloat(min);
+                %>
+
+                <input type="radio" id="<%= this.data.attr('wid') %>_blade_radio0" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min : max                                           %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_blade_radio0"><%= !this.data.attr('invert_value') ? _('open') : _('closed') %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_blade_radio1" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.25 : min + (max - min) * 0.75 %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_blade_radio1"><%= !this.data.attr('invert_value') ? '25%' : '75%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_blade_radio2" name="<%= this.data.attr('wid') %>_radio" value="<%=                                   min + (max - min) * 0.5                             %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_blade_radio2">50%</label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_blade_radio3" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? min + (max - min) * 0.75 : min + (max - min) * 0.25 %>" checked="checked"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_blade_radio3"><%= !this.data.attr('invert_value') ? '75%' : '25%' %></label>
+                <input type="radio" id="<%= this.data.attr('wid') %>_blade_radio4" name="<%= this.data.attr('wid') %>_radio" value="<%= !this.data.attr('invert_value') ? max : min                                           %>"/><label class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" for="<%= this.data.attr('wid') %>_blade_radio4"><%= !this.data.attr('invert_value') ? _('closed') : _('open') %></label>
+            </div>
+            <div class="vac-dialog-100-icon">
+                <img src="widgets/vis-advanced-controls/img/fts_blade_z_100.png">
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="sliderJQUI" style="width: 90%" id="<%= this.data.attr('wid') %>_blade_slider" data-oid="<%= this.data.attr('oidBladePos') %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.jqueryui.slider(el, {min: min, max: max, step: (max - min) / 100, inverted: this.data.attr('invert_value')}) %> />
+            <br/>
+            <%= vis.states.attr(this.data.oidBladePos + '.val') ? (((parseFloat(vis.states.attr(this.data.oidBladePos + '.val')) - min) / (max - min)) * 100).toFixed(0) : 0 %>%
+            <%= (this.data.show_value === 'true' || this.data.show_value === true) ? '(' + Math.round(parseFloat(vis.states.attr(this.data.oidBladePos + '.val') * 100) / 100) + ' ' + this.data.attr('units') + ')' : '' %>
+        </div>
+        <div class="popup-helper" <%= (el) -> vis.binds.advancedui.dialog(el, data, true) %> />
+        <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialogAutoClose(el, data.attr('autoclose')) %> />
+        <!-- ENDE DIALOG -->
+
+    </div>
+    <% vis.binds['vis-advanced-controls'].tplVacShutterBlindsDialog(this.data.wid, this.view, this.data);  %>
+</script>
+
