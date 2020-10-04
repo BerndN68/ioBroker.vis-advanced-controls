@@ -59,14 +59,14 @@
     filter: invert(1);
 }
 
-.vac-list-desc {
+div.vac-list-desc {
     float: left;
     width: calc(100% - 72px - 150px - 16px);
     height: 56px;
     margin-top: 10px;
 }
 
-.vac-list-value {
+div.vac-list-value {
     float: left;
     width: 150px;
     text-align: right;
